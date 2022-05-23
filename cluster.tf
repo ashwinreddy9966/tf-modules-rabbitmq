@@ -5,6 +5,7 @@ resource "aws_mq_broker" "rabbitmq" {
   engine_version     = "3.9.16"
   host_instance_type = "mq.t2.micro"
   security_groups    = [aws_security_group.rabbitmq.id]
+  subnet_ids         = [data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_IDS[0]]
 
   user {
     username = "roboshop"
