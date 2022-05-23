@@ -1,5 +1,5 @@
 resource "aws_mq_broker" "rabbitmq" {
-  broker_name = "example"
+  broker_name = "roboshop-mq"
 
   engine_type        = "RabbitMQ"
   engine_version     = "3.9.16"
