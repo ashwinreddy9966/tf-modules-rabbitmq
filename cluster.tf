@@ -38,6 +38,14 @@ resource "aws_security_group" "rabbitmq" {
     protocol    = "tcp"
     cidr_blocks = [data.terraform_remote_state.vpc.outputs.VPC_CIDR]
   }
+
+  ingress {
+    description = "SSH"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = [data.terraform_remote_state.vpc.outputs.VPC_CIDR, "172.31.15.197/32"]
+  }
 #  ingress {
 #    description = "Allows Def Subnet CIDR"
 #    from_port   = 22
