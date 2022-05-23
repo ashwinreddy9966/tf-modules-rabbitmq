@@ -1,14 +1,14 @@
 resource "aws_mq_broker" "rabbitmq" {
   broker_name = "example"
-  
+
   engine_type        = "ActiveMQ"
   engine_version     = "5.15.9"
   host_instance_type = "mq.t2.micro"
   security_groups    = [aws_security_group.test.id]
 
   user {
-    username = "ExampleUser"
-    password = "MindTheGap"
+    username = "roboshop"
+    password = "RoboShop123"
   }
 }
 
