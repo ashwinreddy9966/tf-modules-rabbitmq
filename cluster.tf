@@ -37,7 +37,7 @@ resource "aws_security_group" "rabbitmq" {
     from_port   = 5672
     to_port     = 5672
     protocol    = "tcp"
-    cidr_blocks = [data.terraform_remote_state.vpc.outputs.VPC_CIDR]
+    cidr_blocks = [data.terraform_remote_state.vpc.outputs.VPC_CIDR, var.WORKSTATION_IP]
   }
 
   ingress {
