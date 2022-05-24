@@ -6,5 +6,5 @@
 #  records = [aws_mq_broker.aws_mq_broker.????]
 #}
 output "rabbitmq" {
-  value = aws_mq_broker.aws_mq_broker
+  value = aws_mq_broker.rabbitmq
 }
