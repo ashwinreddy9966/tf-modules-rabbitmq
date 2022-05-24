@@ -3,5 +3,5 @@ resource "aws_route53_record" "record" {
   name    = "rabbitmq-${var.ENV}.${data.terraform_remote_state.vpc.outputs.HOSTEDZONE_PRIVATE_ZONE}"
   type    = "CNAME"
   ttl     = "60"
-  records = [aws_mq_broker.rabbitmq.id.]
+  records = [${aws_mq_broker.rabbitmq.id}.mq.us-east-1.amazonaws.com"]
 }
