@@ -25,6 +25,12 @@ resource "aws_spot_instance_request" "rabbitmq" {
   }
 }
 
+resource "aws_ec2_tag" "tag-for-rabbitmq" {
+  resource_id = aws_spot_instance_request.rabbitmq.id
+  key         = "Name"
+  value       = "${var.COMPONENT}-${var.ENV}"
+}
+
 resource "null_resource" "app-deploy" {
   provisioner "remote-exec" {
     connection {
