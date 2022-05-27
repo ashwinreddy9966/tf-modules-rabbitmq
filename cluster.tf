@@ -18,7 +18,7 @@ resource "aws_spot_instance_request" "rabbitmq" {
   instance_type           = var.RABBITMQ_INSTANCE_TYPE
   wait_for_fulfillment    = true
   vpc_security_group_ids  = [aws_security_group.rabbitmq.id]
-  subnet_id               = element(data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_IDS, count.index)
+  subnet_id               = data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_IDS
 
   tags = {
     Name = "${var.COMPONENT}-${var.ENV}"
