@@ -35,7 +35,7 @@ resource "null_resource" "app-deploy" {
     inline = [
       "sudo labauto ansible",
      // "ansible-pull -U https://github.com/raghudevopsb63/ansible roboshop.yml  -e role_name=rabbitmq -e HOST=localhost  -e ENV=${var.ENV}"
-      "ansible-pull -U https://github.com/ashwinreddy9966/ansible roboshop-pull.yml -e ENV=${var.ENV} -e COMPONENT=${var.COMPONENT}"
+      "ansible-pull -U https://github.com/ashwinreddy9966/ansible roboshop-pull.yml -e ENV=${var.ENV} -e COMPONENT=rabbitmq"
     ]
   }
 }
