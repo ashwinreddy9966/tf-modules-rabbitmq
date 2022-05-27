@@ -14,3 +14,9 @@ data "aws_secretsmanager_secret" "secret" {
 data "aws_secretsmanager_secret_version" "secrets" {
   secret_id = data.aws_secretsmanager_secret.secret.id
 }
+
+data "aws_ami" "ami" {
+  most_recent      = true
+  name_regex       = "rotot-with-ansible-ami"
+  owners           = ["self"]
+}
